@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก</title>
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>สมัครสมาชิก</h1>
+    <form id="registrationForm">
+        <label for="fname">ชื่อ:</label><br>
+        <input type="text" id="fname" name="fname" required><br>
+        <label for="lname">นามสกุล:</label><br>
+        <input type="text" id="lname" name="lname" required><br>
+        <label for="phone">เบอร์โทร:</label><br>
+        <input type="tel" id="phone" name="phone" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <input type="submit" value="สมัครสมาชิก">
+    </form>
+
+    <h2>รายชื่อสมาชิก</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ชื่อ</th>
+                <th>นามสกุล</th>
+                <th>เบอร์โทร</th>
+                <th>Email</th>
+                <th>ลบ</th>
+            </tr>
+        </thead>
+        <tbody id="memberList">
+            <!-- รายการสมาชิกจะถูกเพิ่มที่นี่ -->
+        </tbody>
+    </table>
+</body>
+</html>
