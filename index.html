@@ -1,1 +1,21 @@
-ใครเป็นคนคิดว่าเวลาเขียนโปรแกรมครั้งแรกต้องใส่คำว่า Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple .txt Database</title>
+</head>
+<body>
+    <h1>Data from .txt File</h1>
+    <pre id="data-container"></pre>
+    
+    <script>
+        fetch('data.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('data-container').innerText = data;
+            })
+            .catch(error => console.error('Error fetching the data:', error));
+    </script>
+</body>
+</html>
