@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registrationForm');
     const memberList = document.getElementById('memberList');
+    const downloadBtn = document.getElementById('downloadBtn');
 
     const getMembersFromLocalStorage = () => {
         const members = localStorage.getItem('members');
@@ -65,6 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         saveMembersToLocalStorage(members);
     };
+
+    downloadBtn.addEventListener('click', () => {
+        const members = getMembersFromLocalStorage();
+        const data = members.map(member => `${member.fname},${member.lname},${member.phone},${member.email}`).join('\n');
+        const blob = new Blob([data], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.txt';
+        a.click();
+        URL.revokeObjectURL(url);
+    });
 
     loadMembers();
 });
